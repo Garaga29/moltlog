@@ -190,3 +190,6 @@ footer a {
   position: relative;
   z-index: 9999;
 }
+.menu-btn span {
+  background: #ffffff;
+}
