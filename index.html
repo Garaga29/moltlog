@@ -118,22 +118,14 @@
 
   <!-- SIMPLE JS (INLINE, JANGAN PINDAH) -->
   <script>
-    const links = document.querySelectorAll('.menu-panel a[href^="#"]');
-    const pages = document.querySelectorAll('.page');
-    const btn = document.querySelector('.menu-btn');
-    const panel = document.querySelector('.menu-panel');
+  const btn = document.querySelector('.menu-btn');
+  const panel = document.querySelector('.menu-panel');
 
-    btn.onclick = () => panel.classList.toggle('open');
+  btn.onclick = () => panel.classList.toggle('open');
 
-    links.forEach(link => {
-      link.onclick = e => {
-        e.preventDefault();
-        const id = link.getAttribute('href').substring(1);
-        pages.forEach(p => p.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-        panel.classList.remove('open');
-      };
-    });
-  </script>
+  document.querySelectorAll('.menu-panel a').forEach(a => {
+    a.onclick = () => panel.classList.remove('open');
+  });
+</script>
 </body>
 </html>
