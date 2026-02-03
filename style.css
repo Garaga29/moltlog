@@ -543,3 +543,19 @@ body {
 .menu-overlay a:hover {
   background: #1a1a1a;
 }
+:root {
+  --bg-main: #0b0d10;
+  --bg-panel: #12151a;
+  --bg-panel-soft: #161a20;
+
+  --border-soft: rgba(255,255,255,0.06);
+
+  --text-main: #e6e8eb;
+  --text-dim: #9aa0a6;
+  --text-muted: #6b7280;
+
+  --green: #3bff8f;
+  --yellow: #f6c177;
+  --red: #ff5c5c;
+  --accent: #7aa2f7;
+}
