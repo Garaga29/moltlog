@@ -576,3 +576,15 @@ body {
 .status-red {
   color: var(--red);
 }
+.system-narrative {
+  color: var(--text-dim);
+  text-shadow: 0 0 20px rgba(122,162,247,0.08);
+}
+.menu-overlay {
+  background: linear-gradient(
+    180deg,
+    #0f1218 0%,
+    #141824 100%
+  );
+  border: 1px solid var(--border-soft);
+}
