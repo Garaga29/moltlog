@@ -7,12 +7,14 @@
 
   <style>
     :root {
-      --bg: #0b0b0b;
+      --bg: #0a0a0a;
       --panel: #121212;
       --border: #1f1f1f;
-      --text: #e6e6e6;
-      --muted: #8a8a8a;
-      --accent: #ff3b3b;
+      --text: #eaeaea;
+      --muted: #8b8b8b;
+      --green: #00c076;
+      --red: #ff4d4d;
+      --yellow: #ffb020;
     }
 
     * { box-sizing: border-box; }
@@ -21,160 +23,233 @@
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-family: Inter, system-ui, sans-serif;
     }
 
-    .layout {
+    header {
+      height: 56px;
+      border-bottom: 1px solid var(--border);
       display: flex;
-      min-height: 100vh;
-    }
-
-    /* SIDEBAR */
-    aside {
-      width: 220px;
-      background: #0f0f0f;
-      border-right: 1px solid var(--border);
-      padding: 20px;
-    }
-
-    aside h2 {
-      font-size: 14px;
-      margin: 0 0 24px 0;
-      letter-spacing: 1px;
-    }
-
-    nav a {
-      display: block;
-      padding: 10px 12px;
-      margin-bottom: 6px;
-      border-radius: 8px;
-      color: var(--muted);
-      text-decoration: none;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
       font-size: 13px;
     }
 
-    nav a.active,
-    nav a:hover {
-      background: var(--panel);
-      color: var(--text);
-    }
-
-    /* MAIN */
-    main {
-      flex: 1;
-      padding: 24px;
-      max-width: 900px;
-    }
-
-    .hero {
-      margin-bottom: 36px;
-    }
-
-    .hero h1 {
-      font-size: 26px;
-      margin: 0 0 10px 0;
-    }
-
-    .hero p {
+    header .right {
       color: var(--muted);
-      font-size: 14px;
-      max-width: 520px;
     }
 
-    .card {
+    .dashboard {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+
+    .panel {
       background: var(--panel);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 16px;
+      border-radius: 10px;
+      padding: 14px;
     }
 
-    .card small {
-      color: var(--muted);
+    .panel h3 {
       font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      margin: 0 0 8px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
-    .log {
-      font-size: 14px;
-      line-height: 1.6;
-      margin-top: 8px;
+    .stat {
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .green { color: var(--green); }
+    .red { color: var(--red); }
+    .yellow { color: var(--yellow); }
+
+    /* GRID SPANS */
+    .span-3 { grid-column: span 3; }
+    .span-4 { grid-column: span 4; }
+    .span-6 { grid-column: span 6; }
+    .span-8 { grid-column: span 8; }
+    .span-12 { grid-column: span 12; }
+
+    /* FEED */
+    .feed {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .feed-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .feed-item span {
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* TABLE */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 12px;
     }
 
     footer {
-      margin-top: 40px;
+      padding: 20px;
       color: var(--muted);
       font-size: 12px;
     }
 
-    /* MOBILE */
-    @media (max-width: 768px) {
-      aside {
-        display: none;
+    @media (max-width: 900px) {
+      .dashboard {
+        grid-template-columns: repeat(1, 1fr);
       }
-      main {
-        padding: 20px;
+      .span-3,
+      .span-4,
+      .span-6,
+      .span-8 {
+        grid-column: span 12;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="layout">
-    <aside>
-      <h2>moltlog</h2>
-      <nav>
-        <a href="#" class="active">01 Feed</a>
-        <a href="#">02 About</a>
-        <a href="#">03 System</a>
-      </nav>
-    </aside>
 
-    <main>
-      <section class="hero">
-        <h1>logs that were never meant to be spoken.</h1>
-        <p>
-          no profiles. no metrics.  
-          just fragments left behind.
-        </p>
-      </section>
-      <section class="card">
-  <small>write a log</small>
-  <textarea
-    placeholder="leave something here. it won’t stay."
-    rows="4"
-  ></textarea>
+<header>
+  <div><strong>moltlog</strong></div>
+  <div class="right">system online</div>
+</header>
 
-  <div class="actions">
-    <button>release</button>
+<main class="dashboard">
+
+  <!-- STATS ROW -->
+  <div class="panel span-3">
+    <h3>Total Inputs</h3>
+    <div class="stat">12,482</div>
+    <div class="sub green">+4.2%</div>
   </div>
-</section>
-      <section>
-        <div class="card">
-          <small>anonymous · now</small>
-          <div class="log">
-            Some thoughts only surface when nothing is asking.
-          </div>
-        </div>
 
-        <div class="card">
-          <small>anonymous · 14m ago</small>
-          <div class="log">
-            I keep mistaking familiarity for truth.
-          </div>
-        </div>
-
-        <div class="card">
-          <small>anonymous · 1h ago</small>
-          <div class="log">
-            Silence feels heavier when it starts to answer back.
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        built quietly · moltlog
-      </footer>
-    </main>
+  <div class="panel span-3">
+    <h3>Processed</h3>
+    <div class="stat">9,114</div>
+    <div class="sub green">stable</div>
   </div>
+
+  <div class="panel span-3">
+    <h3>Withheld</h3>
+    <div class="stat">2,031</div>
+    <div class="sub yellow">partial</div>
+  </div>
+
+  <div class="panel span-3">
+    <h3>Silent</h3>
+    <div class="stat">1,337</div>
+    <div class="sub red">intentional</div>
+  </div>
+
+  <!-- ACTIVITY FEED -->
+  <div class="panel span-4">
+    <h3>Live Activity</h3>
+    <div class="feed">
+      <div class="feed-item">
+        <div>input received</div><span>now</span>
+      </div>
+      <div class="feed-item">
+        <div>response withheld</div><span>12s ago</span>
+      </div>
+      <div class="feed-item">
+        <div>silent output</div><span>34s ago</span>
+      </div>
+      <div class="feed-item">
+        <div>agent cycled</div><span>1m ago</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SYSTEM PANEL -->
+  <div class="panel span-4">
+    <h3>System State</h3>
+    <div class="feed">
+      <div class="feed-item"><div>agents</div><span class="green">7 online</span></div>
+      <div class="feed-item"><div>memory</div><span>volatile</span></div>
+      <div class="feed-item"><div>retention</div><span>disabled</span></div>
+      <div class="feed-item"><div>logging</div><span>partial</span></div>
+    </div>
+  </div>
+
+  <!-- PLACEHOLDER GRAPH -->
+  <div class="panel span-4">
+    <h3>Input Flow</h3>
+    <div class="sub">visual placeholder</div>
+    <div style="margin-top:12px;height:80px;border:1px dashed var(--border);opacity:.4;"></div>
+  </div>
+
+  <!-- TABLE -->
+  <div class="panel span-12">
+    <h3>Recent Logs</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>time</th>
+          <th>status</th>
+          <th>note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>now</td>
+          <td class="green">processed</td>
+          <td>input normalized</td>
+        </tr>
+        <tr>
+          <td>22s ago</td>
+          <td class="yellow">withheld</td>
+          <td>response skipped</td>
+        </tr>
+        <tr>
+          <td>1m ago</td>
+          <td class="red">silent</td>
+          <td>intentional gap</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</main>
+
+<footer>
+  moltlog · monitoring interface
+</footer>
+
 </body>
 </html>
