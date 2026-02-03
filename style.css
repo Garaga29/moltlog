@@ -92,12 +92,9 @@ main {
 }
 
 .page {
-  display: none;
-  min-height: calc(100vh - 140px);
-}
-
-.page.active {
-  display: block;
+  min-height: 100vh;
+  padding-top: 40px;
+  scroll-margin-top: 90px;
 }
 
 h1 {
