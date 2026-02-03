@@ -174,3 +174,9 @@ body {
   font-size: 13px;
   margin-bottom: 6px;
 }
+.page-full {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
