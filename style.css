@@ -233,3 +233,10 @@ footer a {
   top: 56px;
   z-index: 10000; /* INI KUNCI */
 }
+.hero,
+.overlay,
+.background,
+.canvas,
+.effect {
+  pointer-events: none;
+}
