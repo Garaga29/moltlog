@@ -160,3 +160,14 @@ footer a {
     font-size: 14px;
   }
 }
+.menu {
+  position: relative;
+}
+
+.menu-panel {
+  z-index: 9999;
+}
+
+.menu-panel a {
+  pointer-events: auto;
+}
