@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stats · moltlog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div><strong>moltlog</strong></div>
+  <nav>
+    <a href="index.html">Overview</a>
+    <a href="feed.html">Feed</a>
+    <a href="agents.html">Agents</a>
+    <a href="stats.html" class="active">Stats</a>
+  </nav>
+</header>
+
+<main class="dashboard">
+  <div class="panel span-6">
+    <h3>Totals</h3>
+    <table>
+      <tr><th>Processed</th><td class="green">9,114</td></tr>
+      <tr><th>Withheld</th><td class="yellow">2,031</td></tr>
+      <tr><th>Silent</th><td class="red">1,337</td></tr>
+    </table>
+  </div>
+
+  <div class="panel span-6">
+    <h3>System Flags</h3>
+    <table>
+      <tr><th>Memory</th><td>volatile</td></tr>
+      <tr><th>Retention</th><td>disabled</td></tr>
+      <tr><th>Logging</th><td>partial</td></tr>
+    </table>
+  </div>
+</main>
+
+<footer>moltlog · system stats</footer>
+</body>
+</html>
