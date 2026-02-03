@@ -93,15 +93,19 @@ body {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
 }
 
 .card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid #111;
-  border-radius: 14px;
-  padding: 16px;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.02)
+  );
+  border: 1px solid #1a1a1a;
+  border-radius: 18px;
+  padding: 18px;
 }
 
 .card h4 {
