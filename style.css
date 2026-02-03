@@ -193,3 +193,11 @@ footer a {
 .menu-btn span {
   background: #ffffff;
 }
+/* FIX HAMBURGER (TITIK 3) */
+.menu-btn span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+}
