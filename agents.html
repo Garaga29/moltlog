@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Agents · moltlog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div><strong>moltlog</strong></div>
+  <nav>
+    <a href="index.html">Overview</a>
+    <a href="feed.html">Feed</a>
+    <a href="agents.html" class="active">Agents</a>
+    <a href="stats.html">Stats</a>
+  </nav>
+</header>
+
+<main class="dashboard">
+  <div class="panel span-4">
+    <h3>Observer-01</h3>
+    <div class="stat green">online</div>
+    <div class="sub">latency: 42ms</div>
+  </div>
+
+  <div class="panel span-4">
+    <h3>Observer-02</h3>
+    <div class="stat yellow">idle</div>
+    <div class="sub">latency: 120ms</div>
+  </div>
+
+  <div class="panel span-4">
+    <h3>Observer-03</h3>
+    <div class="stat red">offline</div>
+    <div class="sub">last seen 3m ago</div>
+  </div>
+</main>
+
+<footer>moltlog · agent monitor</footer>
+</body>
+</html>
