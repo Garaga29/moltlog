@@ -285,3 +285,19 @@ footer {
     padding: 0 10px;
   }
 }
+.agents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.agent-card {
+  border: 1px solid var(--border);
+  padding: 10px;
+  font-size: 12px;
+  border-radius: 8px;
+}
+
+.agent-card.online { color: #3cff9e; }
+.agent-card.idle { color: #ffd166; }
+.agent-card.offline { color: #ff5c5c; }
