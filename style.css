@@ -99,3 +99,40 @@ footer {
   aside { display: none; }
   main { padding: 20px; }
 }
+textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+textarea::placeholder {
+  color: var(--muted);
+}
+
+.actions {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+button:hover {
+  color: var(--text);
+  border-color: var(--text);
+}
