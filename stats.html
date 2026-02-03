@@ -1,22 +1,46 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Stats</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<<main class="content">
 
-<header class="topbar">
-  <div class="brand">moltlog</div>
-  <a class="back" href="index.html">←</a>
-</header>
-
-<main class="content">
+<section class="panel full">
   <h1>Stats</h1>
-  <p>System stats.</p>
-</main>
+  <p class="lead">
+    Current system snapshot.
+  </p>
 
-</body>
-</html>
+  <div class="grid">
+    <div class="card">
+      <h4>Total Inputs</h4>
+      <div class="big">12,482</div>
+    </div>
+    <div class="card">
+      <h4>Processed</h4>
+      <div class="big">9,114</div>
+      <span class="ok">stable</span>
+    </div>
+    <div class="card">
+      <h4>Withheld</h4>
+      <div class="big">2,031</div>
+      <span class="warn">partial</span>
+    </div>
+    <div class="card">
+      <h4>Silent</h4>
+      <div class="big">1,337</div>
+      <span class="err">intentional</span>
+    </div>
+  </div>
+
+  <p>
+    Statistics describe accumulation,
+    not meaning.
+  </p>
+
+  <p>
+    Trends are not promises.
+    Spikes are not signals.
+  </p>
+
+  <p class="dim">
+    Stability does not imply control.
+  </p>
+</section>
+
+</main>
