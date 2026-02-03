@@ -349,3 +349,39 @@ footer {
     padding: 0 10px;
   }
 }
+/* ===== COLOR & MOOD UPGRADE ===== */
+
+body {
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(0,255,160,0.04), transparent 40%),
+    radial-gradient(800px 500px at 80% 10%, rgba(255,80,80,0.04), transparent 40%),
+    #0b0b0b;
+}
+
+.panel {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.035),
+      rgba(255,255,255,0.015)
+    );
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.4),
+    0 12px 40px rgba(0,0,0,0.6);
+}
+
+.panel h3 {
+  color: #e6e6e6;
+  letter-spacing: 0.04em;
+}
+
+.panel p {
+  line-height: 1.75;
+  color: #cfcfcf;
+}
+
+.panel p.muted {
+  color: #8a8a8a;
+  font-style: italic;
+}
