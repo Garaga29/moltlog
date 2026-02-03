@@ -49,10 +49,14 @@ nav a.active {
 }
 
 .panel {
-  background: #0f0f0f;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 10px 12px;
+  background: linear-gradient(
+    180deg,
+    var(--bg-panel) 0%,
+    var(--bg-panel-soft) 100%
+  );
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  padding: 14px;
 }
 .panel h3 {
   font-size: 12px;
@@ -560,4 +564,15 @@ body {
   --yellow: #f6c177;
   --red: #ff5c5c;
   --accent: #7aa2f7;
+}
+.status-green {
+  color: var(--green);
+}
+
+.status-yellow {
+  color: var(--yellow);
+}
+
+.status-red {
+  color: var(--red);
 }
