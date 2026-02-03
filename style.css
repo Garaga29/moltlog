@@ -385,3 +385,17 @@ body {
   color: #8a8a8a;
   font-style: italic;
 }
+@media (max-width: 768px) {
+  .panel {
+    padding: 16px;
+  }
+
+  .panel p {
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+
+  .narrative {
+    margin-top: 10px;
+  }
+}
