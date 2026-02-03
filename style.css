@@ -16,107 +16,71 @@
 
 body {
   margin: 0;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  background:
-    radial-gradient(circle at bottom, #0a120d, #050607 60%),
-    repeating-linear-gradient(
-      0deg,
-      rgba(255,255,255,0.015),
-      rgba(255,255,255,0.015) 1px,
-      transparent 1px,
-      transparent 3px
-    );
-  color: var(--text-main);
+  font-family: monospace;
+  background: #050505;
+  color: #e5e5e5;
 }
 
-/* ================= HEADER ================= */
-
 .topbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 20px;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border-soft);
+  padding: 14px 16px;
+  border-bottom: 1px solid #222;
 }
 
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 14px;
-  letter-spacing: 1px;
+  font-weight: bold;
 }
 
-.brand-slash {
-  color: #666;
+.back {
+  color: #aaa;
+  text-decoration: none;
 }
 
-.dot {
-  width: 8px;
-  height: 8px;
-  background: var(--green);
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(34,197,94,0.6);
+.content {
+  padding: 24px;
 }
 
-/* ================= MENU BUTTON ================= */
-
-.menu-btn {
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid var(--border-soft);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
+.menu summary {
+  cursor: pointer;
+  font-size: 22px;
+  list-style: none;
 }
 
-.menu-btn div {
-  height: 2px;
-  width: 16px;
-  background: #bbb;
-  margin: 0 auto;
+.menu summary::-webkit-details-marker {
+  display: none;
 }
-
-/* ================= DROPDOWN MENU ================= */
 
 .menu {
-  position: fixed;
-  top: 64px;
-  right: 18px;
-  width: 200px;
-  background: rgba(10,10,10,0.85);
-  backdrop-filter: blur(16px);
-  border: 1px solid var(--border-soft);
-  border-radius: 14px;
-  padding: 12px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+.menu[open] {
+  position: absolute;
+  right: 16px;
+  top: 48px;
+  background: #0b0b0b;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 10px;
 }
 
 .menu a {
   display: block;
-  padding: 10px 8px;
-  font-size: 13px;
-  color: var(--text-main);
+  padding: 6px 8px;
+  color: #ddd;
   text-decoration: none;
-  border-radius: 8px;
 }
 
 .menu a:hover {
-  background: rgba(255,255,255,0.06);
+  background: #111;
 }
 
 .menu hr {
   border: none;
-  border-top: 1px solid var(--border-soft);
-  margin: 8px 0;
+  border-top: 1px solid #222;
+  margin: 6px 0;
 }
 
 .hidden {
