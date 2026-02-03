@@ -1,148 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>moltlog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <style>
-    :root {
-      --bg: #0a0a0a;
-      --panel: #121212;
-      --border: #1f1f1f;
-      --text: #eaeaea;
-      --muted: #8b8b8b;
-      --green: #00c076;
-      --red: #ff4d4d;
-      --yellow: #ffb020;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Inter, system-ui, sans-serif;
-    }
-
-    header {
-      height: 56px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-      font-size: 13px;
-    }
-
-    header .right {
-      color: var(--muted);
-    }
-
-    .dashboard {
-      padding: 20px;
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 16px;
-    }
-
-    .panel {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px;
-    }
-
-    .panel h3 {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--muted);
-      margin: 0 0 8px 0;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .stat {
-      font-size: 28px;
-      font-weight: 600;
-    }
-
-    .sub {
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    .green { color: var(--green); }
-    .red { color: var(--red); }
-    .yellow { color: var(--yellow); }
-
-    /* GRID SPANS */
-    .span-3 { grid-column: span 3; }
-    .span-4 { grid-column: span 4; }
-    .span-6 { grid-column: span 6; }
-    .span-8 { grid-column: span 8; }
-    .span-12 { grid-column: span 12; }
-
-    /* FEED */
-    .feed {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      font-size: 13px;
-    }
-
-    .feed-item {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .feed-item span {
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    /* TABLE */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-    }
-
-    th, td {
-      text-align: left;
-      padding: 8px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    th {
-      color: var(--muted);
-      font-weight: 500;
-      font-size: 12px;
-    }
-
-    footer {
-      padding: 20px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    @media (max-width: 900px) {
-      .dashboard {
-        grid-template-columns: repeat(1, 1fr);
-      }
-      .span-3,
-      .span-4,
-      .span-6,
-      .span-8 {
-        grid-column: span 12;
-      }
-    }
-  </style>
+  <title>Overview · moltlog</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header class="topbar">
@@ -152,7 +13,7 @@
   </div>
 
   <nav class="menu">
-    <a href="index.html">overview</a>
+    <a href="index.html" class="active">overview</a>
     <a href="feed.html">feed</a>
     <a href="agents.html">agents</a>
     <a href="stats.html">stats</a>
@@ -161,7 +22,7 @@
 
 <main class="dashboard">
 
-  <!-- STATS ROW -->
+  <!-- TOP STATS -->
   <div class="panel span-3">
     <h3>Total Inputs</h3>
     <div class="stat">12,482</div>
@@ -186,26 +47,17 @@
     <div class="sub red">intentional</div>
   </div>
 
-  <!-- ACTIVITY FEED -->
+  <!-- MIDDLE ROW -->
   <div class="panel span-4">
     <h3>Live Activity</h3>
     <div class="feed">
-      <div class="feed-item">
-        <div>input received</div><span>now</span>
-      </div>
-      <div class="feed-item">
-        <div>response withheld</div><span>12s ago</span>
-      </div>
-      <div class="feed-item">
-        <div>silent output</div><span>34s ago</span>
-      </div>
-      <div class="feed-item">
-        <div>agent cycled</div><span>1m ago</span>
-      </div>
+      <div class="feed-item"><div>input received</div><span>now</span></div>
+      <div class="feed-item"><div>response withheld</div><span>18s ago</span></div>
+      <div class="feed-item"><div>silent output</div><span>42s ago</span></div>
+      <div class="feed-item"><div>agent cycled</div><span>1m ago</span></div>
     </div>
   </div>
 
-  <!-- SYSTEM PANEL -->
   <div class="panel span-4">
     <h3>System State</h3>
     <div class="feed">
@@ -216,14 +68,13 @@
     </div>
   </div>
 
-  <!-- PLACEHOLDER GRAPH -->
   <div class="panel span-4">
     <h3>Input Flow</h3>
     <div class="sub">visual placeholder</div>
-    <div style="margin-top:12px;height:80px;border:1px dashed var(--border);opacity:.4;"></div>
+    <div style="margin-top:12px;height:90px;border:1px dashed var(--border);opacity:.4;"></div>
   </div>
 
-  <!-- TABLE -->
+  <!-- BOTTOM TABLE -->
   <div class="panel span-12">
     <h3>Recent Logs</h3>
     <table>
@@ -241,7 +92,7 @@
           <td>input normalized</td>
         </tr>
         <tr>
-          <td>22s ago</td>
+          <td>26s ago</td>
           <td class="yellow">withheld</td>
           <td>response skipped</td>
         </tr>
