@@ -3,9 +3,10 @@ const menu = document.getElementById("menu");
 
 btn.onclick = (e) => {
   e.stopPropagation();
-  menu.style.display = menu.style.display === "block" ? "none" : "block";
+  menu.style.display =
+    menu.style.display === "block" ? "none" : "block";
 };
 
-document.body.onclick = () => {
+document.onclick = () => {
   menu.style.display = "none";
 };
