@@ -1,33 +1,39 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  background: radial-gradient(ellipse at bottom, #0b0f14, #000);
-  color: #e5e5e5;
+  background: radial-gradient(circle at top, #14161a, #050507);
+  color: #e6e6e6;
+  min-height: 100vh;
 }
 
-/* TOP BAR */
+/* HEADER */
 .topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 16px 20px;
+  background: rgba(10,10,12,0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #1f1f1f;
 }
 
 .brand {
-  font-weight: 600;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .dot {
   display: inline-block;
   width: 8px;
   height: 8px;
-  background: #00ff88;
+  background: #3cff7a;
   border-radius: 50%;
   margin-left: 6px;
 }
@@ -40,22 +46,21 @@ body {
 .menu-btn {
   background: none;
   border: none;
-  color: #aaa;
-  font-size: 20px;
+  color: #fff;
+  font-size: 22px;
   cursor: pointer;
 }
 
 .menu-panel {
   position: absolute;
   right: 0;
-  top: 28px;
-  background: rgba(15,15,20,0.96);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 10px;
-  padding: 8px;
-  width: 180px;
+  top: 36px;
+  background: #0c0d10;
+  border: 1px solid #1f1f1f;
+  border-radius: 12px;
+  padding: 10px;
+  width: 200px;
   display: none;
-  backdrop-filter: blur(8px);
 }
 
 .menu-panel.open {
@@ -64,65 +69,104 @@ body {
 
 .menu-panel a {
   display: block;
-  padding: 8px 10px;
-  color: #ddd;
+  padding: 8px;
   text-decoration: none;
+  color: #e6e6e6;
   font-size: 14px;
 }
 
 .menu-panel a:hover {
-  background: rgba(255,255,255,0.06);
-  border-radius: 6px;
+  background: #16181d;
+  border-radius: 8px;
 }
 
 .divider {
   height: 1px;
-  background: rgba(255,255,255,0.1);
-  margin: 6px 0;
+  background: #1f1f1f;
+  margin: 8px 0;
 }
 
-/* CONTENT */
-.container {
-  padding: 24px 16px 80px;
+/* PAGES */
+main {
+  padding: 24px;
 }
 
-.panel {
-  max-width: 720px;
-  margin: 0 auto;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  padding: 20px;
+.page {
+  display: none;
+  min-height: calc(100vh - 140px);
+}
+
+.page.active {
+  display: block;
 }
 
 h1 {
-  margin-top: 0;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.lead {
+  opacity: 0.7;
+  margin-bottom: 24px;
+}
+
+/* CARDS */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.card {
+  background: #0f1116;
+  border: 1px solid #1f1f1f;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.card span {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.card strong {
+  display: block;
   font-size: 22px;
+  margin: 6px 0;
 }
 
-p {
+.green { color: #3cff7a; }
+.yellow { color: #ffd166; }
+.red { color: #ff5c5c; }
+
+/* TEXT */
+.narrative {
+  opacity: 0.75;
   line-height: 1.6;
-  font-size: 14px;
+  max-width: 700px;
 }
 
-.muted {
-  color: #9aa0a6;
+/* LISTS */
+.log li,
+.agents li {
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+.stats p {
+  margin-bottom: 8px;
 }
 
 /* FOOTER */
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+footer {
   text-align: center;
-  padding: 10px;
-  font-size: 12px;
-  color: #777;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  padding: 24px;
+  opacity: 0.6;
+  font-size: 13px;
 }
 
-.footer a {
-  color: #8ab4f8;
+footer a {
+  color: #3cff7a;
   text-decoration: none;
 }
