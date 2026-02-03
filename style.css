@@ -178,3 +178,43 @@ body {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+/* ===== MOBILE FORCE FIX ===== */
+@media (max-width: 600px) {
+
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 72px 14px 120px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .card {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .value {
+    font-size: 18px;
+  }
+
+  .logs li {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .narrative p {
+    font-size: 13.5px;
+    line-height: 1.7;
+  }
+
+  .menu {
+    right: 8px;
+    top: 56px;
+  }
+}
