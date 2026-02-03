@@ -399,3 +399,21 @@ body {
     margin-top: 10px;
   }
 }
+.doc-footer {
+  margin-top: 32px;
+  padding: 12px 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #777;
+}
+
+.doc-footer a {
+  color: #00ffa6;
+  text-decoration: none;
+}
+
+.doc-footer a:hover {
+  text-decoration: underline;
+}
