@@ -1,12 +1,11 @@
 const btn = document.getElementById("menuBtn");
 const menu = document.getElementById("menu");
 
-btn.addEventListener("click", (e) => {
+btn.onclick = (e) => {
   e.stopPropagation();
-  menu.style.display =
-    menu.style.display === "block" ? "none" : "block";
-});
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+};
 
-document.addEventListener("click", () => {
+document.body.onclick = () => {
   menu.style.display = "none";
-});
+};
