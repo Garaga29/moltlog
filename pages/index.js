@@ -1,55 +1,100 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Moltlog() {
   const [text, setText] = useState("");
   const [reply, setReply] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("system online");
+  const [activity, setActivity] = useState("");
+  const [listening, setListening] = useState(false);
+
+  // ambient system activity
+  useEffect(() => {
+    const messages = [
+      "someone paused before submitting",
+      "a thought was discarded",
+      "input detected",
+      "nothing saved",
+      "a sentence almost happened",
+      "memory skipped",
+    ];
+
+    const interval = setInterval(() => {
+      setActivity(messages[Math.floor(Math.random() * messages.length)]);
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, []);
 
   async function submit() {
     if (!text.trim()) return;
-    setLoading(true);
+
+    setListening(true);
     setReply("");
+    setStatus("listening…");
 
-    const res = await fetch("/api/confess", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text }),
-    });
+    // intentional delay (anti-instant)
+    await new Promise((r) => setTimeout(r, 2800));
 
-    const data = await res.json();
-    setReply(data.reply);
-    setLoading(false);
+    try {
+      const res = await fetch("/api/confess", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text }),
+      });
+
+      const data = await res.json();
+      setReply(data.reply);
+      setStatus("idle");
+    } catch {
+      setReply("…");
+      setStatus("idle");
+    }
+
+    setListening(false);
+    setText("");
   }
 
   return (
     <div style={styles.page}>
-      <div style={styles.container}>
-        <div style={styles.logo}>moltlog</div>
+      <div style={styles.frame}>
+        {/* header */}
+        <div style={styles.header}>
+          <div>moltlog</div>
+          <div style={styles.dim}>{status}</div>
+        </div>
 
-        <h1 style={styles.title}>Some thoughts need to molt.</h1>
-        <p style={styles.subtitle}>
-          Write something you’ve never said out loud.
-        </p>
+        {/* ambient system */}
+        <div style={styles.system}>
+          <span className="blink">●</span> {activity}
+        </div>
 
-        <textarea
-          style={styles.textarea}
-          placeholder="type here…"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
+        {/* input zone */}
+        <div style={styles.inputZone}>
+          <textarea
+            style={styles.textarea}
+            placeholder="type something"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                submit();
+              }
+            }}
+          />
+          <div style={styles.hint}>press enter to release</div>
+        </div>
 
-        <button style={styles.button} onClick={submit}>
-          let it go
-        </button>
+        {/* response zone */}
+        <div style={styles.response}>
+          {listening && <div style={styles.dim}>listening…</div>}
+          {!listening && reply && <div>{reply}</div>}
+        </div>
 
-        {loading && <p style={styles.loading}>listening…</p>}
-
-        {reply && (
-          <div style={styles.replyBox}>
-            <p>{reply}</p>
-            <div style={styles.signature}>— moltlog</div>
-          </div>
-        )}
+        {/* footer */}
+        <div style={styles.footer}>
+          last activity just now · nothing stored
+        </div>
       </div>
     </div>
   );
@@ -57,68 +102,64 @@ export default function Moltlog() {
 
 const styles = {
   page: {
-    background: "#0d0d0d",
-    color: "#e5e5e5",
+    background: "#0b0b0b",
+    color: "#e6e6e6",
     minHeight: "100vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    fontFamily: "Inter, monospace",
+    fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
   },
-  container: {
+  frame: {
     width: "100%",
-    maxWidth: 520,
+    maxWidth: 640,
     padding: 24,
-    textAlign: "center",
+    border: "1px solid rgba(255,255,255,0.08)",
   },
-  logo: {
-    opacity: 0.6,
-    marginBottom: 32,
-    letterSpacing: 1,
+  header: {
+    display: "flex",
+    justifyContent: "space-between",
+    marginBottom: 12,
+    fontSize: 13,
+    opacity: 0.8,
   },
-  title: {
-    fontSize: 22,
-    marginBottom: 8,
+  system: {
+    fontSize: 12,
+    opacity: 0.55,
+    marginBottom: 24,
   },
-  subtitle: {
-    fontSize: 14,
-    opacity: 0.6,
+  inputZone: {
     marginBottom: 24,
   },
   textarea: {
     width: "100%",
-    height: 160,
+    height: 90,
     background: "transparent",
-    border: "1px solid rgba(255,255,255,0.12)",
-    color: "#e5e5e5",
-    padding: 12,
+    border: "none",
+    borderBottom: "1px solid rgba(255,255,255,0.15)",
+    color: "#e6e6e6",
     resize: "none",
     outline: "none",
-  },
-  button: {
-    marginTop: 16,
-    padding: "8px 20px",
-    background: "none",
-    border: "1px solid rgba(255,255,255,0.2)",
-    color: "#e5e5e5",
-    cursor: "pointer",
-  },
-  loading: {
-    marginTop: 16,
-    opacity: 0.5,
-    fontSize: 13,
-  },
-  replyBox: {
-    marginTop: 24,
-    padding: 16,
-    border: "1px solid rgba(255,255,255,0.12)",
-    textAlign: "left",
     fontSize: 14,
   },
-  signature: {
-    marginTop: 8,
-    fontSize: 12,
+  hint: {
+    fontSize: 11,
+    opacity: 0.4,
+    marginTop: 6,
+  },
+  response: {
+    minHeight: 60,
+    fontSize: 14,
+    lineHeight: 1.6,
+    marginBottom: 24,
+  },
+  footer: {
+    fontSize: 11,
+    opacity: 0.35,
+    borderTop: "1px solid rgba(255,255,255,0.08)",
+    paddingTop: 12,
+  },
+  dim: {
     opacity: 0.5,
-    textAlign: "right",
   },
 };
