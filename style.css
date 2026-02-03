@@ -14,7 +14,7 @@ body {
   line-height: 1.45;
 }
 
-/* ================= HEADER ================= */
+/* ================ HEADER ================= */
 .topbar {
   position: sticky;
   top: 0;
@@ -219,5 +219,73 @@ footer a {
   .menu-panel {
     width: 100%;
     right: -6px;
+  }
+}
+/* ===== FORCE COMPACT MODE ===== */
+
+/* global spacing diperas */
+body {
+  line-height: 1.25 !important;
+}
+
+/* section/page */
+.page {
+  padding-top: 8px !important;
+  padding-bottom: 12px !important;
+  min-height: unset !important;
+}
+
+/* judul */
+h1 {
+  margin-bottom: 4px !important;
+}
+
+/* paragraf */
+p,
+.lead,
+.narrative {
+  margin-bottom: 8px !important;
+}
+
+/* card grid lebih rapat */
+.card-grid {
+  gap: 8px !important;
+  margin-bottom: 12px !important;
+}
+
+.card {
+  padding: 10px !important;
+}
+
+/* list diperas */
+.log li,
+.agents li,
+.stats p {
+  margin-bottom: 4px !important;
+  line-height: 1.25 !important;
+}
+
+/* feed text */
+.log li {
+  font-size: 13px !important;
+}
+
+/* footer rapat */
+footer {
+  padding: 12px 0 !important;
+}
+
+/* MOBILE EXTRA TIGHT */
+@media (max-width: 600px) {
+  main {
+    padding: 12px !important;
+  }
+
+  h1 {
+    font-size: 18px !important;
+  }
+
+  .card strong {
+    font-size: 16px !important;
   }
 }
