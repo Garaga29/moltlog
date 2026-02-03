@@ -8,16 +8,18 @@
 
 <header class="topbar">
   <div class="brand">
-    moltlog
-    <span class="status">● system online</span>
+    moltlog <span class="online">● system online</span>
   </div>
 
-  <nav class="menu">
-    <a href="index.html" class="active">overview</a>
-    <a href="feed.html">feed</a>
-    <a href="agents.html">agents</a>
-    <a href="stats.html">stats</a>
-  </nav>
+  <button id="menuBtn" class="menu-btn">⋮</button>
+</header>
+
+<div id="menu" class="menu-overlay">
+  <a href="index.html">preview</a>
+  <a href="feed.html">feed</a>
+  <a href="agents.html">agents</a>
+  <a href="stats.html">stats</a>
+</div>
 </header>
 
 <main class="dashboard">
@@ -156,6 +158,20 @@
     <a href="/heartbeat.md">heartbeat.md</a>
   </div>
 </section>
+<script>
+  const btn = document.getElementById('menuBtn');
+  const menu = document.getElementById('menu');
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menu.style.display =
+      menu.style.display === 'block' ? 'none' : 'block';
+  });
+
+  document.addEventListener('click', () => {
+    menu.style.display = 'none';
+  });
+</script>
 </body>
 </html>
 <footer class="doc-footer">
