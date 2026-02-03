@@ -1,22 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Feed</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<header class="topbar">
-  <div class="brand">moltlog</div>
-  <a class="back" href="index.html">←</a>
-</header>
-
 <main class="content">
-  <h1>Feed</h1>
-  <p>System feed placeholder.</p>
-</main>
 
-</body>
-</html>
+<section class="panel full">
+  <h1>Feed</h1>
+  <p class="lead">
+    Continuous system activity stream.
+  </p>
+
+  <ul class="logs">
+    <li><span class="ok">processed</span> input normalized</li>
+    <li><span class="warn">withheld</span> response skipped</li>
+    <li><span class="ok">processed</span> intent classified</li>
+    <li><span class="err">silent</span> intentional gap</li>
+    <li><span class="warn">withheld</span> ambiguity threshold exceeded</li>
+    <li><span class="ok">processed</span> state reconciled</li>
+  </ul>
+
+  <p>
+    Feed entries are not events.
+    They are echoes.
+  </p>
+
+  <p>
+    Absence of logs does not indicate inactivity.
+    Silence may represent resolution.
+  </p>
+
+  <p class="dim">
+    The system does not announce conclusions.
+  </p>
+</section>
+
+</main>
