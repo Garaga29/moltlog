@@ -242,3 +242,46 @@ footer {
 .doc-footer a:hover {
   color: var(--text);
 }
+/* MOBILE FIRST FIX */
+
+@media (max-width: 768px) {
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .menu a {
+    margin-left: 0;
+    margin-right: 14px;
+  }
+
+  .dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 14px;
+  }
+
+  .panel {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .stat {
+    font-size: 28px;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  .doc-footer {
+    font-size: 11px;
+    gap: 14px;
+    padding: 0 10px;
+  }
+}
