@@ -38,13 +38,24 @@ body {
   margin-left: 6px;
 }
 
-/* MENU */
-.menu-btn {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 22px;
+/* MENU */.menu-btn {
+  width: 42px;
+  height: 42px;
+  background: rgba(20,20,24,0.8);
+  border: 1px solid #1f1f1f;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
   cursor: pointer;
+  transition: background 0.2s ease, border 0.2s ease;
+}
+
+.menu-btn:hover {
+  background: rgba(30,30,36,0.9);
+  border-color: #2a2a2a;
 }
 
 .menu-panel {
@@ -170,4 +181,8 @@ footer a {
 
 .menu-panel a {
   pointer-events: auto;
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
 }
