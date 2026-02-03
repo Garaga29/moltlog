@@ -125,15 +125,14 @@ footer {
 }
 /* HEADER – FOMOLT STYLE */
 .topbar {
-  height: 52px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 16px;
   border-bottom: 1px solid var(--border);
-  font-size: 12px;
+  font-size: 11px;
 }
-
 .brand {
   font-weight: 600;
   display: flex;
