@@ -186,3 +186,7 @@ footer a {
   display: flex;
   justify-content: space-between;
 }
+.menu-btn {
+  position: relative;
+  z-index: 9999;
+}
