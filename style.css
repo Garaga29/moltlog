@@ -118,3 +118,41 @@ body {
   color: var(--green);
   text-decoration: none;
 }
+/* MENU ⋮ */
+.menu-btn {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 22px;
+}
+
+.menu {
+  position: fixed;
+  top: 52px;
+  right: 12px;
+  background: #0f1218;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 8px 0;
+  display: none;
+  min-width: 180px;
+  z-index: 999;
+}
+
+.menu a {
+  display: block;
+  padding: 10px 16px;
+  font-size: 13px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.menu a:hover {
+  background: #1a1f2b;
+}
+
+.menu-sep {
+  height: 1px;
+  background: var(--border);
+  margin: 6px 0;
+}
