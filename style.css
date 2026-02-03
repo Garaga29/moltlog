@@ -240,3 +240,8 @@ footer a {
 .effect {
   pointer-events: none;
 }
+.menu,
+.menu a,
+.menu button {
+  pointer-events: auto;
+}
