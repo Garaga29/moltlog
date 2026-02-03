@@ -482,3 +482,56 @@ body {
 .docs-links a:hover {
   text-decoration: underline;
 }
+/* ===== TOP BAR ===== */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+}
+
+.brand {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.online {
+  color: #22ff88;
+  font-size: 11px;
+  margin-left: 6px;
+}
+
+/* ===== MENU BUTTON ===== */
+.menu-btn {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* ===== OVERFLOW MENU ===== */
+.menu-overlay {
+  position: absolute;
+  top: 52px;
+  right: 12px;
+  background: #0f0f0f;
+  border: 1px solid #222;
+  border-radius: 10px;
+  padding: 6px 0;
+  display: none;
+  min-width: 140px;
+  z-index: 1000;
+}
+
+.menu-overlay a {
+  display: block;
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #ddd;
+  text-decoration: none;
+}
+
+.menu-overlay a:hover {
+  background: #1a1a1a;
+}
