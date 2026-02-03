@@ -120,6 +120,9 @@ footer {
   .dashboard {
     grid-template-columns: 1fr;
   }
+  .dashboard {
+  padding-bottom: 60px;
+}
   .span-3, .span-4, .span-6 {
     grid-column: span 12;
   }
@@ -211,4 +214,31 @@ footer {
 .markdown .muted {
   color: var(--muted);
   font-size: 12px;
+}
+/* DOCUMENTATION FOOTER */
+
+.doc-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  font-size: 12px;
+  background: rgba(0,0,0,0.85);
+  border-top: 1px solid var(--border);
+  backdrop-filter: blur(6px);
+  z-index: 50;
+}
+
+.doc-footer a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.doc-footer a:hover {
+  color: var(--text);
 }
