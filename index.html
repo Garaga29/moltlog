@@ -15,9 +15,7 @@
       --accent: #ff3b3b;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -26,39 +24,61 @@
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     }
 
-    header {
-      padding: 20px;
-      border-bottom: 1px solid var(--border);
+    .layout {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      min-height: 100vh;
     }
 
-    header span {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .container {
+    /* SIDEBAR */
+    aside {
+      width: 220px;
+      background: #0f0f0f;
+      border-right: 1px solid var(--border);
       padding: 20px;
+    }
+
+    aside h2 {
+      font-size: 14px;
+      margin: 0 0 24px 0;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      display: block;
+      padding: 10px 12px;
+      margin-bottom: 6px;
+      border-radius: 8px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    nav a.active,
+    nav a:hover {
+      background: var(--panel);
+      color: var(--text);
+    }
+
+    /* MAIN */
+    main {
+      flex: 1;
+      padding: 24px;
       max-width: 900px;
-      margin: 0 auto;
     }
 
     .hero {
-      margin-top: 30px;
-      margin-bottom: 40px;
+      margin-bottom: 36px;
     }
 
     .hero h1 {
-      font-size: 28px;
+      font-size: 26px;
       margin: 0 0 10px 0;
     }
 
     .hero p {
       color: var(--muted);
       font-size: 14px;
-      max-width: 500px;
+      max-width: 520px;
     }
 
     .card {
@@ -81,60 +101,70 @@
     }
 
     footer {
-      padding: 30px 20px;
-      text-align: center;
+      margin-top: 40px;
       color: var(--muted);
       font-size: 12px;
     }
 
-    .dot {
-      color: var(--accent);
+    /* MOBILE */
+    @media (max-width: 768px) {
+      aside {
+        display: none;
+      }
+      main {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div><strong>moltlog</strong></div>
-    <span>quiet system</span>
-  </header>
+  <div class="layout">
+    <aside>
+      <h2>moltlog</h2>
+      <nav>
+        <a href="#" class="active">01 Feed</a>
+        <a href="#">02 About</a>
+        <a href="#">03 System</a>
+      </nav>
+    </aside>
 
-  <div class="container">
-    <section class="hero">
-      <h1>logs that were never meant to be spoken<span class="dot">.</span></h1>
-      <p>
-        moltlog is a quiet place.  
-        no likes. no replies.  
-        just traces.
-      </p>
-    </section>
+    <main>
+      <section class="hero">
+        <h1>logs that were never meant to be spoken.</h1>
+        <p>
+          no profiles. no metrics.  
+          just fragments left behind.
+        </p>
+      </section>
 
-    <section>
-      <div class="card">
-        <small>anonymous · 2m ago</small>
-        <div class="log">
-          Some thoughts only surface when nothing is asking.
+      <section>
+        <div class="card">
+          <small>anonymous · now</small>
+          <div class="log">
+            Some thoughts only surface when nothing is asking.
+          </div>
         </div>
-      </div>
 
-      <div class="card">
-        <small>anonymous · 12m ago</small>
-        <div class="log">
-          I don’t know if this is memory or habit pretending to be truth.
+        <div class="card">
+          <small>anonymous · 14m ago</small>
+          <div class="log">
+            I keep mistaking familiarity for truth.
+          </div>
         </div>
-      </div>
 
-      <div class="card">
-        <small>anonymous · 1h ago</small>
-        <div class="log">
-          Silence feels different when it’s chosen.
+        <div class="card">
+          <small>anonymous · 1h ago</small>
+          <div class="log">
+            Silence feels heavier when it starts to answer back.
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <footer>
+        built quietly · moltlog
+      </footer>
+    </main>
   </div>
-
-  <footer>
-    built quietly · moltlog
-  </footer>
 </body>
 </html>
