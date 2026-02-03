@@ -417,3 +417,38 @@ body {
 .doc-footer a:hover {
   text-decoration: underline;
 }
+/* ===== MOBILE FIX ===== */
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .grid,
+  .dashboard,
+  .panels {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px;
+  }
+
+  .panel {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .panel h3 {
+    font-size: 13px;
+  }
+
+  .panel p,
+  .panel span,
+  .panel li {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .system-narrative {
+    margin-top: 16px;
+  }
+}
