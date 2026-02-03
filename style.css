@@ -12,11 +12,13 @@
 * { box-sizing: border-box; }
 
 body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 100px;
+  background: radial-gradient(
+    1200px 600px at 50% -200px,
+    #141824 0%,
+    var(--bg-main) 60%
+  );
+  color: var(--text-main);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 header {
