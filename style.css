@@ -1,44 +1,48 @@
+/* RESET */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* ROOT */
 body {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  background: radial-gradient(circle at top, #14161a, #050507);
+  background: radial-gradient(circle at top, #14161a 0%, #07080b 60%, #050507 100%);
   color: #e6e6e6;
   min-height: 100vh;
+  line-height: 1.45;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 .topbar {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 20;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 20px;
-  background: rgba(10,10,12,0.8);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid #1f1f1f;
+  padding: 14px 18px;
+  background: rgba(8, 9, 12, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #1c1c1c;
 }
 
 .brand {
-  font-size: 18px;
+  font-size: 16px;
+  letter-spacing: 0.5px;
 }
 
 .dot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   background: #3cff7a;
   border-radius: 50%;
   margin-left: 6px;
 }
 
-/* MENU */
+/* ================= MENU ================= */
 .menu {
   position: relative;
 }
@@ -46,21 +50,23 @@ body {
 .menu-btn {
   background: none;
   border: none;
-  color: #fff;
-  font-size: 22px;
+  color: #e6e6e6;
+  font-size: 20px;
   cursor: pointer;
+  padding: 4px 6px;
 }
 
 .menu-panel {
   position: absolute;
   right: 0;
   top: 36px;
-  background: #0c0d10;
+  width: 210px;
+  background: #0b0c10;
   border: 1px solid #1f1f1f;
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 10px;
-  width: 200px;
   display: none;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
 }
 
 .menu-panel.open {
@@ -69,15 +75,15 @@ body {
 
 .menu-panel a {
   display: block;
-  padding: 8px;
+  padding: 9px 10px;
   text-decoration: none;
   color: #e6e6e6;
   font-size: 14px;
+  border-radius: 8px;
 }
 
 .menu-panel a:hover {
   background: #16181d;
-  border-radius: 8px;
 }
 
 .divider {
@@ -86,84 +92,132 @@ body {
   margin: 8px 0;
 }
 
-/* PAGES */
+/* ================= MAIN ================= */
 main {
-  padding: 24px;
+  padding: 20px;
+  max-width: 980px;
+  margin: 0 auto;
 }
 
+/* ================= PAGE ================= */
 .page {
-  min-height: 100vh;
-  padding-top: 40px;
-  scroll-margin-top: 90px;
+  min-height: calc(100vh - 80px);
+  padding-top: 16px;
+  padding-bottom: 28px;
+  scroll-margin-top: 80px;
 }
 
 h1 {
-  font-size: 28px;
-  margin-bottom: 8px;
+  font-size: 22px;
+  margin-bottom: 6px;
 }
 
 .lead {
-  opacity: 0.7;
-  margin-bottom: 24px;
+  font-size: 14px;
+  opacity: 0.65;
+  margin-bottom: 16px;
 }
 
-/* CARDS */
+/* ================= CARDS ================= */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
-  gap: 16px;
-  margin-bottom: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 22px;
 }
 
 .card {
-  background: #0f1116;
+  background: linear-gradient(180deg, #0f1116, #0b0c10);
   border: 1px solid #1f1f1f;
   border-radius: 14px;
-  padding: 16px;
+  padding: 14px;
 }
 
 .card span {
-  font-size: 12px;
+  font-size: 11px;
   opacity: 0.6;
 }
 
 .card strong {
   display: block;
-  font-size: 22px;
-  margin: 6px 0;
+  font-size: 20px;
+  margin: 4px 0;
 }
 
 .green { color: #3cff7a; }
 .yellow { color: #ffd166; }
 .red { color: #ff5c5c; }
 
-/* TEXT */
+/* ================= TEXT ================= */
 .narrative {
+  font-size: 14px;
   opacity: 0.75;
-  line-height: 1.6;
-  max-width: 700px;
+  line-height: 1.5;
+  max-width: 720px;
+  margin-bottom: 18px;
 }
 
-/* LISTS */
+/* ================= LISTS ================= */
+ul {
+  padding-left: 16px;
+}
+
 .log li,
 .agents li {
-  margin-bottom: 10px;
   list-style: none;
+  font-size: 14px;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.log li span,
+.agents li span {
+  margin-right: 6px;
 }
 
 .stats p {
-  margin-bottom: 8px;
+  font-size: 14px;
+  margin-bottom: 6px;
 }
 
-/* FOOTER */
+/* ================= FEED COLORS ================= */
+.processed { color: #3cff7a; }
+.withheld { color: #ffd166; }
+.silent { color: #ff5c5c; }
+
+/* ================= FOOTER ================= */
 footer {
   text-align: center;
-  padding: 24px;
-  opacity: 0.6;
-  font-size: 13px;
+  padding: 20px 0;
+  font-size: 12px;
+  opacity: 0.55;
 }
 
 footer a {
   color: #3cff7a;
   text-decoration: none;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  main {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .card strong {
+    font-size: 18px;
+  }
+
+  .menu-panel {
+    width: 100%;
+    right: -6px;
+  }
 }
