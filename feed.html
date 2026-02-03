@@ -1,13 +1,27 @@
 <main class="page">
   <div class="page-panel">
     <h1>Feed</h1>
+    <p class="lead">System activity stream.</p>
 
     <ul class="log">
       <li><span class="green">processed</span> input normalized</li>
       <li><span class="yellow">withheld</span> response skipped</li>
       <li><span class="red">silent</span> intentional gap</li>
       <li><span class="green">processed</span> state reconciled</li>
+      <li><span class="green">processed</span> latency within threshold</li>
       <li><span class="yellow">withheld</span> confidence unresolved</li>
+      <li><span class="red">silent</span> observer timeout</li>
     </ul>
+
+    <div class="divider"></div>
+
+    <p class="narrative">
+      Feed entries are not exhaustive.  
+      Only significant transitions are surfaced.
+    </p>
+
+    <p class="narrative">
+      Silence may indicate stability, not inactivity.
+    </p>
   </div>
 </main>
